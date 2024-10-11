@@ -9,7 +9,7 @@ export default function Projects() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
       <header className="text-center mb-12">
         <h1 className="text-5xl font-extrabold text-blue-600">My Projects</h1>
-        <p className="text-xl mt-4 text-gray-700">Here are some of the projects I've worked on.</p>
+        <p className="text-xl mt-4 text-gray-700">Here are some of the projects I&apos;ve worked on.</p>
       </header>
     <Navbar />
 	  <section className="max-w-2xl w-full mb-12">
@@ -24,11 +24,6 @@ export default function Projects() {
           </div>
         ))}
       </section>
-      <nav className="mb-12">
-        <Link href="/" className="text-blue-600 hover:text-blue-800 transition duration-300">
-          ← Back to Home
-        </Link>
-      </nav>
     </div>
   );
 }

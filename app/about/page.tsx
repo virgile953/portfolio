@@ -18,7 +18,7 @@ export default function About() {
     <strong>Name:</strong> Virgile Barbera
     </p>
     <p className="text-gray-700 mt-2">
-    <strong>Address:</strong> 15 rue d'Ermont, 95 320 Saint-Leu-la-Forêt
+    <strong>Address:</strong> 15 rue d&apos;Ermont, 95 320 Saint-Leu-la-Forêt
     </p>
     <p className="text-gray-700 mt-2">
     <strong>Email:</strong> virgile.barbera@gmail.com
@@ -73,7 +73,7 @@ export default function About() {
     <section className="max-w-2xl w-full mb-12">
     <h2 className="text-3xl font-bold text-blue-600">Education</h2>
     <p className="text-gray-700 mt-2">
-    <strong>Bachelor's Degree in Digital Solutions Development</strong>, IRIS Paris (September 2020 - August 2021)
+    <strong>Bachelor&apos;s Degree in Digital Solutions Development</strong>, IRIS Paris (September 2020 - August 2021)
     </p>
     <p className="text-gray-700 mt-2">
     <strong>BTS in IT Services for Organizations</strong>, IRIS Paris (September 2018 - August 2020)
@@ -82,12 +82,6 @@ export default function About() {
     <strong>Professional Baccalaureate in Electronic and Digital Systems</strong>, IRIS Paris (Obtained in 2018)
     </p>
     </section>
-
-    <nav className="mb-12">
-    <Link href="/" className="text-blue-600 hover:text-blue-800 transition duration-300">
-    ← Back to Home
-    </Link>
-    </nav>
     </div>
   );
 }
