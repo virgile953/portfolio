@@ -9,7 +9,6 @@ export default function Home() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
       <header className="text-center mb-12">
         <h1 className="text-5xl font-extrabold text-blue-600">Welcome to My Portfolio</h1>
-import Link from 'next/link';
         <p className="text-xl mt-4 text-gray-700">I&apos;m Virgile, a developer with <em>some</em> experience in creating innovative solutions.</p>
       </header>
 

@@ -1,6 +1,5 @@
 "use client"; // Mark this component as a client component
 
-import Link from 'next/link';
 import Navbar from '../Navbar'; // Import the Navbar component
 
 export default function About() {
