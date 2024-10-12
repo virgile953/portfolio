@@ -25,6 +25,7 @@ export default function SASApplicationRedesign() {
           <li>Enhanced data visualization capabilities</li>
           <li>Integration of advanced analytics features</li>
           <li>Performance optimizations for faster processing times</li>
+          <li>Rewrite of some parts of the windows native program to a web/api app</li>
         </ul>
 
         <h3 className="text-3xl font-bold text-blue-600 mt-6">Technologies Used</h3>
@@ -32,15 +33,16 @@ export default function SASApplicationRedesign() {
           The redesign was developed using the following technologies:
         </p>
         <ul className="list-disc list-inside mt-2 text-gray-700">
-          <li>Python for backend logic</li>
-          <li>React for the frontend interface</li>
-          <li>SQL for data management</li>
-          <li>Docker for containerization</li>
+          <li>C# for backend logic, gateway and data processing</li>
+          <li>Angular/typescript for the frontend interface</li>
+          <li>Windev/hfsql for legacy code optimizations and compatibility</li>
+          <li>MSSQL for data management</li>
+          <li>RabbitMQ for logging</li>
         </ul>
 
         <h3 className="text-3xl font-bold text-blue-600 mt-6">Impact</h3>
         <p className="text-gray-700 mt-2">
-          The redesigned application led to a significant increase in user satisfaction, reduced training time for new users, and improved overall performance in data analysis tasks.
+          The redesigned application led to a significant increase in user satisfaction and boost in performance, reduced training time for new users, and improved greatly performance in day to day tasks for fleet managers and data/fleet teams.
         </p>
 
         <Link href="/projects" className="mt-8 inline-block bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition duration-300">

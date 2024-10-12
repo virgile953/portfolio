@@ -21,9 +21,10 @@ export default function HRFileProcessing() {
 
         <h3 className="text-3xl font-bold text-blue-600 mt-6">Key Features</h3>
         <ul className="list-disc list-inside mt-2 text-gray-700">
+          <li>Automatic retrieval of files from a mailbox or sftp</li>
           <li>Automated document processing and validation</li>
           <li>Integration with existing HR systems</li>
-          <li>User-friendly interface for HR personnel</li>
+          <li>Interface for the data team</li>
           <li>Real-time reporting and analytics</li>
         </ul>
 
@@ -32,15 +33,17 @@ export default function HRFileProcessing() {
           The software was developed using the following technologies:
         </p>
         <ul className="list-disc list-inside mt-2 text-gray-700">
-          <li>Node.js for backend processing</li>
-          <li>Express for building the API</li>
-          <li>MongoDB for data storage</li>
-          <li>JavaScript/TypeScript for application logic</li>
+          <li>C# for backend processing</li>
+          <li>Angular/TypeScript for display</li>
+          <li>Custom settings handler for customization and application logic</li>
+          <li>Windows scheduler for background use</li>
+          <li>MSSQL for data storage</li>
+          <li>RabbitMQ for logging</li>
         </ul>
 
         <h3 className="text-3xl font-bold text-blue-600 mt-6">Impact</h3>
         <p className="text-gray-700 mt-2">
-          The implementation of this automation tool resulted in significant time savings, improved accuracy in HR processes, and enhanced overall efficiency in managing HR files.
+          The implementation of this automation tool resulted in significant time savings form data team, improved accuracy in data processing, and enhanced overall efficiency in managing HR files.
         </p>
 
         <Link href="/projects" className="mt-8 inline-block bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition duration-300">

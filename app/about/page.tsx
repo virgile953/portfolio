@@ -23,7 +23,7 @@ export default function About() {
     <strong>Email:</strong> virgile.barbera@gmail.com
     </p>
     <p className="text-gray-700 mt-2">
-    <strong>Phone:</strong> 06 95 23 94 33
+    <strong>Phone:</strong> +33 6 95 23 94 33
     </p>
     </section>
 
@@ -33,7 +33,7 @@ export default function About() {
     <strong>Software:</strong> MS Office, SSMS, Visual Studio, Git, Sublime Text
     </p>
     <p className="text-gray-700 mt-2">
-    <strong>Languages:</strong> C#, TypeScript / Angular, PowerShell, Python, Windev, SQL (SSMS, MySQL, HFSQL), RegEX
+    <strong>Languages:</strong> C#, TypeScript / Angular, NextJS, PowerShell, Python, Windev, SQL (SSMS, MySQL, HFSQL), RegEX
     </p>
     <p className="text-gray-700 mt-2">
     <strong>Networking:</strong> IP Addressing, VLAN Creation, OVH Supervision
@@ -43,7 +43,7 @@ export default function About() {
     <section className="max-w-2xl w-full mb-12">
     <h2 className="text-3xl font-bold text-blue-600">Professional Experience</h2>
     <p className="text-gray-700 mt-2">
-    <strong>Developpeur, Gestion de Projet, OptiXt (CDI)</strong> - Since August 2022
+    <strong>Développeur, Gestion de Projet, OptiXt (CDI)</strong> - Since August 2022
     </p>
     <ul className="list-disc list-inside text-gray-700 mt-2">
     <li>Developed software for automatic processing of HR files and generating reports.</li>

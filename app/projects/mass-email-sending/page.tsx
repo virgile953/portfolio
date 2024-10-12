@@ -23,9 +23,8 @@ export default function MassEmailSending() {
         <ul className="list-disc list-inside mt-2 text-gray-700">
           <li>Bulk email sending with customizable templates</li>
           <li>Personalization options for recipient data</li>
-          <li>Analytics dashboard for tracking email performance</li>
-          <li>Integration with existing CRM systems</li>
-          <li>User-friendly interface for campaign management</li>
+          <li>Automatic email list generation based on sql requests</li>
+          <li>Customer and driver selection for custom mail campains</li>
         </ul>
 
         <h3 className="text-3xl font-bold text-blue-600 mt-6">Technologies Used</h3>
@@ -33,10 +32,10 @@ export default function MassEmailSending() {
           The application was developed using the following technologies:
         </p>
         <ul className="list-disc list-inside mt-2 text-gray-700">
-          <li>Node.js for backend server logic</li>
-          <li>React for the frontend interface</li>
-          <li>MongoDB for data storage</li>
-          <li>Nodemailer for email delivery</li>
+          <li>C# for backend server logic</li>
+          <li>Angular for the frontend interface</li>
+          <li>MSSQL/HFSQL for auto generation of email lists</li>
+          <li>RabbitMQ for logging</li>
         </ul>
 
         <h3 className="text-3xl font-bold text-blue-600 mt-6">Impact</h3>

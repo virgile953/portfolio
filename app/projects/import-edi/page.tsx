@@ -20,11 +20,12 @@ export default function Import_EDI() {
 
         <h3 className="text-3xl font-bold text-blue-600 mt-6">Key Features</h3>
         <ul className="list-disc list-inside mt-2 text-gray-700">
+          <li>Reading of mailbox based on settings in sql</li>
           <li>Automated parsing of EDI files</li>
           <li>Customizable data mapping and transformation</li>
           <li>Integration with existing business systems</li>
           <li>Real-time reporting and error handling</li>
-          <li>User-friendly interface for configuration and monitoring</li>
+          <li>Interface for configuration and monitoring</li>
         </ul>
 
         <h3 className="text-3xl font-bold text-blue-600 mt-6">Technologies Used</h3>
@@ -33,8 +34,10 @@ export default function Import_EDI() {
         </p>
         <ul className="list-disc list-inside mt-2 text-gray-700">
           <li>C# for application logic</li>
+          <li>Angular/TypeScript for display</li>
           <li>SQL Server for data storage</li>
           <li>PowerShell for scripting tasks</li>
+          <li>Windows scheduler for background use</li>
           <li>Visual Studio for development</li>
         </ul>
 

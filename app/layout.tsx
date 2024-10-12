@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="favicon.ico" /> {/* Add this line for favicon */}
+        <link rel="icon" href="/favicon.ico" />
         <title>Portfolio</title>
       </head>
       <body className="min-h-screen flex flex-col bg-gray-50">
