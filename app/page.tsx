@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { projects } from './projectsData'; // Import the projects data
-import Navbar from './Navbar';
+import Navbar from './components/Navbar';
 
 export default function Home() {
   return (
