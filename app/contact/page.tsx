@@ -2,7 +2,8 @@
 "use client"; // Mark this component as a client component
 
 import { useState } from 'react';
-import Navbar from '../Navbar'; // Import the Navbar component
+import Navbar from '../components/Navbar';
+import Button from '../components/Button';
 
 export default function Contact() {
   const [name, setName] = useState('');
@@ -35,18 +36,18 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-50 p-6">
+    <div className="min-h-screen flex flex-col items-center p-6">
       <header className="text-center mb-12">
-        <h1 className="text-5xl font-extrabold text-blue-600">Contact Me</h1>
-        <p className="text-xl mt-4 text-gray-700">
+        <h1 className="text-5xl font-extrabold">Contact Me</h1>
+        <p className="text-xl mt-4">
           I would love to hear from you! Please fill out the form below to get in touch.
         </p>
       </header>
       <Navbar />
       <section className="max-w-2xl w-full mb-12">
-        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6">
+        <form onSubmit={handleSubmit} className="bg-gray-800 shadow-md rounded-lg p-6">
           <div className="mb-4">
-            <label htmlFor="name" className="block text-gray-700">Name</label>
+            <label htmlFor="name" className="block">Name</label>
             <input
               type="text"
               id="name"
@@ -57,7 +58,7 @@ export default function Contact() {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700">Email</label>
+            <label htmlFor="email" className="block">Email</label>
             <input
               type="email"
               id="email"
@@ -68,7 +69,7 @@ export default function Contact() {
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="message" className="block text-gray-700">Message</label>
+            <label htmlFor="message" className="block">Message</label>
             <textarea
               id="message"
               value={message}
@@ -80,9 +81,9 @@ export default function Contact() {
           </div>
           {successMessage && <p className="text-green-600">{successMessage}</p>}
           {errorMessage && <p className="text-red-600">{errorMessage}</p>}
-          <button type="submit" className="mt-4 bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition duration-300">
-            Send Message
-          </button>
+          <Button type="submit">
+          Send Message
+          </Button>
         </form>
       </section>
     </div>

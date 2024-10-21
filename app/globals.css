@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* Define root colors for light and dark themes */
 :root {
   --background: #ffffff; /* Light theme background */
   --foreground: #171717; /* Light theme foreground */
@@ -9,8 +11,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a; /* Dark theme background */
-    --foreground: #ededed; /* Dark theme foreground */
+    --background: rgb(17 24 39); /* #111827 Dark theme background */
+    --foreground: rgb(237, 237, 237); /* Dark theme foreground */
   }
 }
 
@@ -22,7 +24,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--foreground); /* Ensure headers also use foreground color */
+  color: rgb(37 99 235);
+  /* color: var(--foreground); Ensure headers also use foreground color */
 }
 
 p {
@@ -36,6 +39,21 @@ a {
 
 a:hover {
   color: #1d4ed8; /* Change link color on hover (Tailwind blue) */
+}
+
+/* Ensure button styles are consistent */
+button {
+  color: var(--foreground); /* Button text color */
+  background-color: transparent; /* Default button background */
+  border: 2px solid var(--foreground); /* Default border color */
+  padding: 0.5rem 1rem; /* Button padding */
+  border-radius: 0.375rem; /* Rounded corners */
+  transition: background 0.3s ease, color 0.3s ease; /* Smooth transition for buttons */
+}
+
+button:hover {
+  background-color: var(--foreground); /* Change background on hover */
+  color: var(--background); /* Change text color on hover */
 }
 
 @layer utilities {

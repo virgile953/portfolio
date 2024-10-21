@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         <link rel="icon" href="/favicon.ico" />
         <title>Portfolio</title>
       </head>
-      <body className="min-h-screen flex flex-col bg-gray-50">
+      <body className="min-h-screen flex flex-col">
         <main className="flex-grow flex flex-col items-center p-6">
           {/* Render the child components/pages */}
           {children}
