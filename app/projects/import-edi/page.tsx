@@ -1,6 +1,6 @@
 "use client"; // Mark this component as a client component
 
-import Link from 'next/link';
+import Button from '../../components/Button';
 
 export default function Import_EDI() {
   return (
@@ -45,28 +45,8 @@ export default function Import_EDI() {
         <p className=" mt-2">
           The implementation of this software resulted in significant time savings, reduced errors in data processing, and enhanced overall efficiency in handling EDI transactions.
         </p>
-        <Link
-  href="/projects"
-  className="mt-4 inline-block rounded-lg transition duration-300"
-  style={{
-    color: 'var(--foreground)', // Button text color
-    backgroundColor: 'transparent', // Default button background
-    border: '2px solid var(--foreground)', // Default border color
-    padding: '0.5rem 1rem', // Button padding
-    borderRadius: '0.375rem', // Rounded corners
-    textDecoration: 'none' // Remove underline
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.backgroundColor = 'var(--foreground)'; // Change background on hover
-    e.currentTarget.style.color = 'var(--background)'; // Change text color on hover
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.backgroundColor = 'transparent'; // Reset background on mouse leave
-    e.currentTarget.style.color = 'var(--foreground)'; // Reset text color on mouse leave
-  }}
->
-  Back to Projects
-</Link>
+
+      <Button href='/projects'>Back to Projects</Button>
       </section>
     </div>
   );
