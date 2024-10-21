@@ -5,7 +5,7 @@ import Button from '../../components/Button';
 
 export default function SASApplicationRedesign() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 p-6">
+    <div className="min-h-screen flex flex-col items-center justify-center p-6">
       <header className="text-center mb-12">
         <h1 className="text-5xl font-extrabold">SAS Application Redesign</h1>
         <p className="text-xl mt-4">
