@@ -15,7 +15,7 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch('/api/sendEmail', {
+    const res = await fetch('/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export default function Contact() {
       </header>
       <Navbar />
       <section className="max-w-2xl w-full mb-12">
-        <form onSubmit={handleSubmit} className="bg-gray-800 shadow-md rounded-lg p-6">
+        <form onSubmit={handleSubmit} className="divblock shadow-md rounded-lg p-6">
           <div className="mb-4">
             <label htmlFor="name" className="block">Name</label>
             <input

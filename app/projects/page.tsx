@@ -14,13 +14,13 @@ export default function Projects() {
     <Navbar />
 	  <section className="max-w-2xl w-full mb-12">
         {projects.map((project, index) => (
-          <div key={index} className="bg-gray-800 shadow-md rounded-lg p-6 mb-6">
-            <h3 className="text-2xl font-bold hover:text-blue-800 transition duration-300">
-              <Link href={project.link}>
+          <div key={index} className="divblock mb-6">
+            <h3 className="biglink">
+              <Link href={project.link} className="biglink">
                 {project.title}
               </Link>
             </h3>
-            <p className="text-gray-300 mt-2">{project.description}</p>
+            <p className="mt-2">{project.description}</p>
           </div>
         ))}
       </section>

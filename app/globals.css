@@ -5,14 +5,21 @@
 
 /* Define root colors for light and dark themes */
 :root {
-  --background: #ffffff; /* Light theme background */
-  --foreground: #171717; /* Light theme foreground */
+  --background: rgb(237, 237, 237); /* Light theme background */
+  --foreground: rgb(17 24 39); /* Light theme foreground */
+  --light: rgb(237, 237, 237);
+  --dark: rgb(17 24 39);
+  --gray: rgb(225 225 225);
+  --lightgray: rgb(31 41 55);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: rgb(17 24 39); /* #111827 Dark theme background */
-    --foreground: rgb(237, 237, 237); /* Dark theme foreground */
+    --background: var(--dark); /* Dark theme background */
+    --foreground: var(--light); /* Dark theme foreground */
+    --gray: rgb(31 41 55);
+    --lightgray: rgb(31 41 55);
+
   }
 }
 
@@ -23,9 +30,32 @@ body {
   transition: background 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
+
+.divblock{
+  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  background-color: var(--gray); /* #1f2937;*/
+  border-radius: 0.5rem /* 8px */;
+  padding: 1.5rem /* 24px */;
+
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: rgb(37 99 235);
   /* color: var(--foreground); Ensure headers also use foreground color */
+}
+
+.biglink {
+  font-size: 1.5rem /* 24px */;
+  line-height: 2rem /* 32px */;
+  font-weight: 700;
+  color: rgb(37 99 235);
+}
+.biglink:hover {
+  color: rgb(30 64 175);
+  transition-duration: 300ms;
+
 }
 
 p {
@@ -34,7 +64,7 @@ p {
 
 a {
   color: var(--foreground); /* Default link color */
-  transition: color 0.3s ease; /* Smooth transition for links */
+  transition: color 0.3s; /* Smooth transition for links */
 }
 
 a:hover {
@@ -54,6 +84,19 @@ button {
 button:hover {
   background-color: var(--foreground); /* Change background on hover */
   color: var(--background); /* Change text color on hover */
+}
+
+link {
+  color: rgb(37 99 235)
+}
+
+input, textarea{
+  color: var(--dark);
+}
+
+link:hover {
+  color: rgb(30 64 175);
+  transition-duration: 300ms;
 }
 
 @layer utilities {
