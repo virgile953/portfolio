@@ -1,7 +1,7 @@
 // app/api/projects/route.ts
 import { sql } from "@vercel/postgres";
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     // Fetch projects from the database
     const { rows } = await sql`SELECT * FROM Projects order by id desc`;

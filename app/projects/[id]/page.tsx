@@ -37,13 +37,16 @@ export default function ProjectDetail() {
 				}
 				const data = await response.json();
 				setProjectData(data);
-			} catch (err: any) {
-				setError(err.message);
+			} catch (err: unknown) {
+				if (err instanceof Error) {
+					setError(err.message); // Safely access message
+				} else {
+					setError('An unknown error occurred');
+				}
 			} finally {
 				setLoading(false);
 			}
 		};
-
 		fetchProjectData();
 	}, [id]); // Run effect when id changes
 
