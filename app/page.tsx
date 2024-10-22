@@ -22,7 +22,7 @@ export default function Home() {
           <div key={index} className="divblock mb-6"> {/* Updated background color */}
             <h3 className="text-2xl font-bold">{project.title}</h3> {/* Updated text color */}
             <p className="mt-2">{project.description}</p>
-            <Link href={project.link} className="text-blue-600 mt-4 inline-block"> {/* Updated hover color */}
+            <Link href={project.link} className="mt-4 inline-block"> {/* Updated hover color */}
               View Project
             </Link>
           </div>

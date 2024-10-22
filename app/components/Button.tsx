@@ -6,9 +6,10 @@ interface ButtonProps {
   type?: 'button' | 'submit' | 'reset'; // Button types
   onClick?: () => void; // Optional click handler
   children: React.ReactNode; // Button text or content
+  className?: string; // Optional className for custom styles
 }
 
-const Button: React.FC<ButtonProps> = ({ href, type = 'button', onClick, children }) => {
+const Button: React.FC<ButtonProps> = ({ href, type = 'button', onClick, children, className }) => {
   const buttonStyles = {
     color: 'var(--foreground)', // Button text color
     backgroundColor: 'transparent', // Default button background
@@ -20,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({ href, type = 'button', onClick, childre
   };
 
   const handleMouseEnter = (e: React.MouseEvent) => {
-    (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--foreground)'; // Change background on hover
+    (e.currentTarget as HTMLElement).style.backgroundColor = 'var(--hover-color)'; // Change background on hover
     (e.currentTarget as HTMLElement).style.color = 'var(--background)'; // Change text color on hover
   };
 
@@ -34,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({ href, type = 'button', onClick, childre
       <Link
         href={href}
         style={buttonStyles}
-        className="mt-4 inline-block rounded-lg"
+        className={`mt-4 inline-block rounded-lg ${className}`} // Added className support
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -47,7 +48,7 @@ const Button: React.FC<ButtonProps> = ({ href, type = 'button', onClick, childre
     <button
       type={type}
       style={buttonStyles}
-      className="mt-4 inline-block rounded-lg"
+      className={`mt-4 inline-block rounded-lg ${className}`} // Added className support
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={onClick}
