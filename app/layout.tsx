@@ -6,7 +6,6 @@ import Button from './components/Button'; // Import your Button component
 export default function Layout({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState(''); // Track the theme
   const [color, setColor] = useState(''); // Track the color
-  const [isColorPickerVisible, setColorPickerVisible] = useState(false); // Track color picker visibility
 
   // Define the function to toggle dark mode
   const toggleDarkMode = () => {
