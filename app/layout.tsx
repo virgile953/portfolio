@@ -1,11 +1,13 @@
 "use client";
 import './globals.css';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState, useRef } from 'react';
 import Button from './components/Button'; // Import your Button component
 
 export default function Layout({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState(''); // Track the theme
   const [color, setColor] = useState(''); // Track the color
+  const [isSmallScreen, setIsSmallScreen] = useState(false); // Track screen size
+  const badgeRef = useRef<HTMLDivElement>(null); // Ref for the badge container
 
   // Define the function to toggle dark mode
   const toggleDarkMode = () => {
@@ -19,7 +21,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   // Function to update color theme
   const handleColorChange = (newColor: string) => {
     document.documentElement.style.setProperty('--primary-color', newColor);
-    console.log(newColor)
+    console.log(newColor);
     // Function to convert hex to RGB
     const hexToRgb = (hex: string) => {
       let r = 0, g = 0, b = 0;
@@ -46,9 +48,6 @@ export default function Layout({ children }: { children: ReactNode }) {
     localStorage.setItem('color', newColor); // Save the color to localStorage
     setColor(newColor); // Update state
   };
-
-
-
 
   useEffect(() => {
     // Get theme and color from localStorage on mount
@@ -95,14 +94,47 @@ export default function Layout({ children }: { children: ReactNode }) {
     }
   }, []);
 
+  useEffect(() => {
+    // Check if the screen size is small
+    const checkScreenSize = () => {
+      setIsSmallScreen(window.innerWidth <= 1410); // Adjust the breakpoint as needed
+    };
+
+    // Initial check
+    checkScreenSize();
+
+    // Add event listener
+    window.addEventListener('resize', checkScreenSize);
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Rerender the LinkedIn badge when the theme changes
+    if (badgeRef.current) {
+      badgeRef.current.innerHTML = `
+        <div class="badge-base LI-profile-badge" data-locale="fr_FR" data-size="medium" data-theme="${theme}" data-type="VERTICAL" data-vanity="virgile-barbera-72047783" data-version="v1">
+          <a class="badge-base__link LI-simple-link" href="https://fr.linkedin.com/in/virgile-barbera-72047783?trk=profile-badge"></a>
+        </div>
+      `;
+      // Re-initialize the LinkedIn badge script
+      const script = document.createElement('script');
+      script.src = 'https://platform.linkedin.com/badges/js/profile.js';
+      script.async = true;
+      badgeRef.current.appendChild(script);
+    }
+  }, [theme]);
+
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <title>Portfolio</title>
-        {/* Inline script for theme and color application */}
-        <script dangerouslySetInnerHTML={{
-          __html: `
+    <head>
+    <link rel="icon" href="/favicon.ico" />
+
+    <title>Portfolio</title>
+    {/* Inline script for theme and color application */}
+    <script dangerouslySetInnerHTML={{
+      __html: `
             (function() {
               const theme = localStorage.getItem('theme');
               const color = localStorage.getItem('color');
@@ -119,36 +151,64 @@ export default function Layout({ children }: { children: ReactNode }) {
               }
             })();
           `,
-        }} />
-      </head>
-      <body className="min-h-screen flex flex-col">
-        {/* Add the Button component for theme toggle */}
-        <div className="absolute top-4 right-4 flex items-center space-x-4">
-          <Button onClick={toggleDarkMode} className="p-2">
-            Toggle {theme === 'dark' ? 'Light' : 'Dark'} Mode
-          </Button>
-          {/* Gear icon for opening color picker */}
-          <Button onClick={() => document.getElementById('colorPicker')?.click()} className="relative p-2">
-            ⚙️
-            {/* Invisible Color Picker */}
-            <input
-              type="color"
-              id="colorPicker"
-              value={color || '#2563eb'}
-              onChange={(e) => handleColorChange(e.target.value)}
-              className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"  // Hide input but keep it clickable
-            />
-          </Button>
-
-
+    }} />
+    </head>
+    <body className="min-h-screen flex flex-col">
+    {/* Add the Button component for theme toggle */}
+    <div className={`absolute top-4 right-4 flex flex-col items-start space-y-2`}>
+    <div className="flex items-center space-x-4">
+    <Button onClick={toggleDarkMode} className="p-2">
+    Toggle {theme === 'dark' ? 'Light' : 'Dark'} Mode
+    </Button>
+    {/* Gear icon for opening color picker */}
+    <Button onClick={() => document.getElementById('colorPicker')?.click()} className="relative p-2">
+    ⚙️
+    {/* Invisible Color Picker */}
+    <input
+    type="color"
+    id="colorPicker"
+    value={color || '#2563eb'}
+    onChange={(e) => handleColorChange(e.target.value)}
+    className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer"  // Hide input but keep it clickable
+    />
+    </Button>
+    </div>
+        {/* LinkedIn Badge wrapper */}
+        <div style={{display: isSmallScreen ? "none" : "flex"}}>
+          <div ref={badgeRef} className="badge-base LI-profile-badge" data-locale="fr_FR" data-size="medium" data-theme={theme} data-type="VERTICAL" data-vanity="virgile-barbera-72047783" data-version="v1">
+            <a className="badge-base__link LI-simple-link" href="https://fr.linkedin.com/in/virgile-barbera-72047783?trk=profile-badge"></a>
+          </div>
         </div>
-        <main className="flex-grow flex flex-col items-center p-6">
-          {children}
-        </main>
-        <footer className="py-6 text-center text-gray-500">
-          &copy; {new Date().getFullYear()} Virgile Barbera. All rights reserved.
-        </footer>
-      </body>
-    </html>
-  );
-}
+        </div>
+
+    <main className="flex-grow flex flex-col items-center p-6">
+    {children}
+    </main>
+    {/* LinkedIn Badge wrapper */}
+    <div style={{display: isSmallScreen ? "flex" : "none"}} className="badge-container">
+    <div ref={badgeRef}>
+    </div>
+    </div>
+    <footer className="py-6 text-center text-gray-500">
+    &copy; {new Date().getFullYear()} Virgile Barbera. All rights reserved.
+    </footer>
+    </body>
+    <style jsx>{`
+        .badge-container {
+          display: none;
+          justify-content: center;
+          margin-bottom: 1rem;
+        }
+
+        @media (max-width: 1410px)
+          .badge-container {
+            display: flex;
+            position: relative;
+            margin: 0;
+          }
+        }
+      `}</style>
+
+      </html>
+    );
+  }
