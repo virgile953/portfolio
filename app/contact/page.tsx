@@ -1,5 +1,5 @@
 // pages/contact.tsx
-"use client"; // Mark this component as a client component
+"use client";
 
 import { useState } from 'react';
 import Navbar from '../components/Navbar';

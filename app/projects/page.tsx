@@ -1,18 +1,18 @@
-"use client"; // Mark this component as a client component
+"use client";
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Navbar from '../components/Navbar'; // Import the Navbar component
+import Navbar from '../components/Navbar';
 
 type Project = {
-  id: number; // Adjust this type based on your actual table structure
+  id: number;
   title: string;
   description: string;
   link: string;
 };
 
 export default function Projects() {
-  const [projects, setProjects] = useState<Project[]>([]); // Initialize state for projects
+  const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -20,14 +20,14 @@ export default function Projects() {
         const response = await fetch('/api/projects');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
-        setProjects(data); // Update state with fetched data
+        setProjects(data);
       } catch (error) {
         console.error('Error fetching projects:', error);
       }
     };
 
-    fetchProjects(); // Call the function to fetch projects
-  }, []); // Empty dependency array means this runs once on mount
+    fetchProjects();
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-6">

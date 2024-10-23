@@ -2,98 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Define light theme as default */
 :root {
-  --background: rgb(237, 237, 237); /* Light theme background */
-  --foreground: rgb(17 24 39); /* Light theme foreground */
-  --primary-color: rgb(37, 99, 235); /* Default to Tailwind blue */
-  --hover-color: rgb(29, 78, 216); /* Default hover color, can be calculated dynamically */
-  --light: rgb(237, 237, 237); /* Light theme */
-  --dark: rgb(17 24 39); /* Dark theme */
-  --gray: rgb(225 225 225); /* Light gray for div backgrounds */
-  --lightgray: rgb(31 41 55); /* Dark gray for div backgrounds */
+  --background: rgb(237, 237, 237);
+  --foreground: rgb(17 24 39);
+  --primary-color: rgb(37, 99, 235);
+  --hover-color: rgb(29, 78, 216);
+  --light: rgb(237, 237, 237);
+  --dark: rgb(17 24 39);
+  --gray: rgb(225 225 225);
+  --lightgray: rgb(31 41 55);
 }
 
-/* Dark theme styles when the 'dark' class is applied */
 html.dark {
-  --background: var(--dark); /* Dark theme background */
-  --foreground: var(--light); /* Dark theme foreground */
-  --gray: rgb(31 41 55); /* Background gray for dark mode */
-  --lightgray: rgb(31 41 55); /* Secondary gray for dark mode */
+  --background: var(--dark);
+  --foreground: var(--light);
+  --gray: rgb(31 41 55);
+  --lightgray: rgb(31 41 55);
 }
 
-/* Base body styles */
 body {
   color: var(--foreground);
   background-color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  transition: background-color 300ms ease, color 300ms ease; /* Smooth transition */
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
-/* Styles for div blocks */
 .divblock {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-  background-color: var(--gray); /* Background color changes based on theme */
-  border-radius: 0.5rem; /* 8px */
-  padding: 1.5rem; /* 24px */
+  background-color: var(--gray);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
   transition-duration: 300ms;
 }
 
 h1 {
   margin-top: 1.5rem;
 }
-/* Headers and text elements now use --primary-color */
 h1, h2, h3, h4, h5, h6 {
-  color: var(--primary-color); /* Use primary color */
+  color: var(--primary-color);
 }
 
-/* Big link styles */
 .biglink {
-  font-size: 1.5rem; /* 24px */
-  line-height: 2rem; /* 32px */
+  font-size: 1.5rem;
+  line-height: 2rem;
   font-weight: 700;
-  color: var(--primary-color); /* Use primary color */
+  color: var(--primary-color);
 }
 .biglink:hover {
-  color: var(--hover-color); /* Darker on hover */
+  color: var(--hover-color);
   transition-duration: 300ms;
 }
 
-/* Paragraphs */
 p {
-  color: var(--foreground); /* Ensure paragraph text uses foreground color */
+  color: var(--foreground);
 }
 
-/* Links */
 a {
-  color: var(--primary-color); /* Use primary color for links */
+  color: var(--primary-color);
 }
 a:hover {
-  color: var(--hover-color); /* Darker on hover */
+  color: var(--hover-color);
 }
 
-/* Button styles */
 button {
-  color: var(--foreground); /* Button text color */
-  background-color: transparent; /* Default button background */
-  border: 2px solid var(--foreground); /* Default border color */
-  padding: 0.5rem 1rem; /* Button padding */
-  border-radius: 0.375rem; /* Rounded corners */
-  transition: background 300ms ease, color 300ms ease; /* Smooth transition for buttons */
+  color: var(--foreground);
+  background-color: transparent;
+  border: 2px solid var(--foreground);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition: background 300ms ease, color 300ms ease;
 }
 button:hover {
-  background-color: var(--foreground); /* Change background on hover */
-  color: var(--background); /* Change text color on hover */
+  background-color: var(--foreground);
+  color: var(--background);
 }
 
-/* Input and Textarea */
 input, textarea {
-  color: var(--dark); /* Text color in inputs */
+  color: var(--dark);
 }
 
-/* Custom utility class */
 @layer utilities {
   .text-balance {
     text-wrap: balance;

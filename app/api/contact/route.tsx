@@ -4,12 +4,12 @@ import nodemailer from 'nodemailer';
 export async function POST(req: Request) {
   const { name, email, message } = await req.json();
 
-  // Create a Nodemailer transporter
+
   const transporter = nodemailer.createTransport({
     service: "Gmail",
-    host: 'smtp.gmail.com', // or your SMTP server
+    host: 'smtp.gmail.com',
     port: 465,
-    secure: true, // true for 465, false for other ports
+    secure: true,
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS
@@ -20,7 +20,7 @@ export async function POST(req: Request) {
 
   const mailOptions = {
     from: email,
-    to: process.env.EMAIL_USER, // Send to yourself or desired recipient
+    to: process.env.EMAIL_USER,
     subject: `New contact form submission from ${name}`,
     text: `You have a new message from ${name} (${email}):\n\n${message}`,
   };

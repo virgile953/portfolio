@@ -3,7 +3,7 @@ import { sql } from "@vercel/postgres";
 
 export async function GET() {
   try {
-    // Fetch projects from the database
+
     const { rows } = await sql`SELECT * FROM Projects order by id desc`;
 
     return new Response(JSON.stringify(rows), {

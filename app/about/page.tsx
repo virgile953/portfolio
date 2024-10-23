@@ -1,6 +1,6 @@
-"use client"; // Mark this component as a client component
+"use client";
 
-import Navbar from '../components/Navbar'; // Import the Navbar component
+import Navbar from '../components/Navbar';
 
 export default function About() {
   return (
@@ -9,7 +9,6 @@ export default function About() {
         <h1 className="text-5xl font-extrabold">About Me</h1>
         <p className="text-xl mt-4">A brief introduction and overview of my skills.</p>
       </header>
-      {/* Render the Navbar */}
       <Navbar />
       <section className="max-w-2xl w-full mb-12">
         <h2 className="text-3xl font-bold">Contact Information</h2>

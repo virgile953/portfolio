@@ -3,8 +3,8 @@ import { sql } from "@vercel/postgres";
 
 export async function POST(req: Request) {
 	try {
-		const { id } = await req.json(); // Extract the project ID from the request body
-		// Fetch project details from the database
+		const { id } = await req.json();
+		// nice sql request that HAS to be this long because i fucked up the db's creation
 		const { rows } = await sql`SELECT
 									 projects.id,
 									 projects.title,
@@ -23,7 +23,7 @@ export async function POST(req: Request) {
 			return new Response('Project not found', { status: 404 });
 		}
 
-		return new Response(JSON.stringify(rows[0]), { // Return the first row if multiple are returned
+		return new Response(JSON.stringify(rows[0]), {
 			status: 200,
 			headers: {
 				"Content-Type": "application/json",

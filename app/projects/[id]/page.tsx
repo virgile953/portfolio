@@ -1,5 +1,5 @@
 // app/projects/[id]/page.tsx
-"use client"; // Ensure this is a client component
+"use client";
 
 import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
@@ -15,21 +15,21 @@ interface ProjectData {
 }
 
 export default function ProjectDetail() {
-	const id = usePathname().split("/").at(-1); // Get the project ID from the URL
+	const id = usePathname().split("/").at(-1);
 	const [projectData, setProjectData] = useState<ProjectData | null>(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {
 		const fetchProjectData = async () => {
-			if (!id) return; // Don't fetch until ID is available
+			if (!id) return;
 			try {
 				const response = await fetch('/api/projectdata', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
 					},
-					body: JSON.stringify({ id }), // Send ID in the body
+					body: JSON.stringify({ id }),
 				});
 
 				if (!response.ok) {
@@ -39,7 +39,7 @@ export default function ProjectDetail() {
 				setProjectData(data);
 			} catch (err: unknown) {
 				if (err instanceof Error) {
-					setError(err.message); // Safely access message
+					setError(err.message);
 				} else {
 					setError('An unknown error occurred');
 				}
@@ -48,7 +48,7 @@ export default function ProjectDetail() {
 			}
 		};
 		fetchProjectData();
-	}, [id]); // Run effect when id changes
+	}, [id]);
 
 	if (loading) return <div>Loading...</div>;
 	if (error) return <div>Error: {error}</div>;
