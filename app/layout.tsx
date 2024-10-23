@@ -7,14 +7,6 @@ import { usePathname } from 'next/navigation';
 export default function Layout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
-  if (pathname === '/test') { // Check if the path is /test
-    return (
-      <html lang="en">
-        <head />
-        <body>{children}</body>
-      </html>
-    );
-  }
 
   const [theme, setTheme] = useState(''); // Track the theme
   const [color, setColor] = useState(''); // Track the color
@@ -137,6 +129,15 @@ export default function Layout({ children }: { children: ReactNode }) {
       badgeRef.current.appendChild(script);
     }
   }, [theme]);
+
+  if (pathname === '/test') { // Check if the path is /test
+    return (
+      <html lang="en">
+        <head />
+        <body>{children}</body>
+      </html>
+    );
+  }
 
   return (
     <html lang="en">
